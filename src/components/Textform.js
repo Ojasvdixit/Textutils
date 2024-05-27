@@ -4,6 +4,7 @@ import React, {useState} from 'react'
 export default function Textform(props) {
 
     const [text,setText] = useState('');
+   // const [extractedNumbers, setExtractedNumbers] = useState([]);
 
 
     
@@ -45,13 +46,19 @@ export default function Textform(props) {
       let newtext =text.split(/[ ]+/);
        setText(newtext.join(" "));
   }
+
+  const handleextractnumbersClick=(e)=>{
+    let numbers = text.match(/\d+/g);
+    if (numbers) {
+        numbers = numbers.map(Number);
+         setText(numbers.join(', ')); 
+        console.log('Extracted numbers:', numbers);
+        
+    } else {
+        console.log('No numbers found in the input text.');
+    }
+  }
   
- 
-    
-  
-
-
-
       //text ='new text ' //wrong way to change text
     //setText('new text') //correct way to change text
     // setText('Enter text here..')
@@ -74,7 +81,9 @@ export default function Textform(props) {
        <button className="btn btn-success "  onClick={handleLowerClick}>Convert to Lowercase</button>
        <button className="btn btn-success mx-2"  onClick={handleclearClick}>Clear text</button>
        <button className="btn btn-success"  onClick={handlecopyClick}>Copy text</button>
-       <button className="btn btn-success mx-2"  onClick={handlespaceClick}>Remove Extra Spaces </button>
+       <button className="btn btn-success mx-2"  onClick={handlespaceClick}>Remove Extra Spaces</button>
+       <button className="btn btn-success mx-2"  onClick={handleextractnumbersClick}>Extract Numbers</button>
+
        {/* <button className="btn btn-success mx-2"  onClick={handlemodeClick} >Dark Mode</button> */}
     </div>
  
