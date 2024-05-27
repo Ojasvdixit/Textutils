@@ -12,7 +12,7 @@
     "react-router-dom": "^6.18.0",
     "react-scripts": "^3.0.1",
     "web-vitals": "^2.1.4",
-    "homepage": "https://Ojasvdixit.github.io/textutils"
+    "homepage": "https://Ojasvdixit.github.io/Textutils"
   },
   "scripts": {
     "start": "react-scripts --openssl-legacy-provider start",
